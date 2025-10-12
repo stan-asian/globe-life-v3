@@ -44,7 +44,7 @@ export default function CareerClient() {
               alt="Globe Life Background"
               width={350}
               height={500}
-              className="object-contain opacity-90 w-[20vw] hover:w-[22vw] transition-all duration-300 ease-in-out"
+              className="object-contain opacity-90 w-[20vw] hover:w-[21vw] transition-all duration-300 ease-in-out"
             />
           </div>
 
