@@ -89,11 +89,11 @@ export default function AgentProfile({ data }: AgentProfileProps) {
 
   // ─── UI ─────────────────────────────
   return (
-    <section className="max-w-6xl mx-auto px-4 py-8">
+    <section className="max-w-5xl mx-auto px-4 py-8">
       {/* ───── Desktop Tabs ───── */}
       {!isMobile && (
         <>
-          <div className="flex gap-3 border-b-4 border-[#00558C] mb-6">
+          <div className="flex gap-3 border-b-4 border-[#2EA24F] mb-6">
             {["about", "locations"].map((tab) => (
               <button
                 key={tab}
@@ -101,8 +101,8 @@ export default function AgentProfile({ data }: AgentProfileProps) {
                 className={`px-6 py-2 text-white font-semibold rounded-t-md transition-all duration-300
                   ${
                     activeTab === tab
-                      ? "bg-[#00558C] scale-105"
-                      : "bg-[#00558C]/50 hover:bg-[#00558C]"
+                      ? "bg-[#2EA24F] scale-105"
+                      : "bg-[#2EA24F]/50 hover:bg-[#2EA24F]"
                   }`}
               >
                 {tab === "about" ? "About" : "Locations"}
