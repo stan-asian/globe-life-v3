@@ -3,12 +3,12 @@ import React from "react";
 
 export default function ContactUsClient() {
   return (
-    <div className="py-12 px-6 md:px-16 bg-gray-100">
+    <div className="py-12 px-6 md:px-16 bg-gray-200">
       <div className="max-w-[800px] lg:max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start p-4">
         {/* Left Section */}
         <div className="space-y-8 w-full">
           <div>
-            <h1 className="lg:text-3xl text-xl font-bold text-gray-800 mb-3">
+            <h1 className="lg:text-3xl text-xl font-medium text-gray-800 mb-3">
               Connect with me!
             </h1>
             <p className="text-gray-700 lg:text-xl text-sm leading-relaxed">
@@ -26,7 +26,7 @@ export default function ContactUsClient() {
           </p>
 
           <div>
-            <h2 className="lg:text-3xl text-xl font-semibold text-gray-800 mb-2">
+            <h2 className="lg:text-3xl text-xl font-medium text-gray-800 mb-2">
               Office Info
             </h2>
             <p className="text-gray-700 lg:text-xl text-sm">

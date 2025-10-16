@@ -65,7 +65,7 @@ export default function CareerClient() {
         {/* RIGHT SIDE */}
         <div className="xl:w-1/2 w-full flex flex-col items-center justify-center max-[1280px]:mt-5">
           {/* Main Video */}
-          <div className="lg:w-full aspect-video overflow-hidden shadow-2xl">
+          <div className="lg:w-full aspect-video overflow-hidden shadow-2xl z-1">
             <video
               key={videos[activeIndex].id}
               src={videos[activeIndex].src}

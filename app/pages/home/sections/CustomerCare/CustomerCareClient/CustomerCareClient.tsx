@@ -2,7 +2,7 @@ export default function CustomerCareClient() {
   return (
     <section className="flex flex-col justify-center items-center lg:gap-10 w-full">
       <div className="flex flex-col lg:flex-row lg:max-w-[1380px] w-full h-full bg-white lg:border-l-10 border-t-10 lg:border-t-0 border-[#87d7d5]">
-        <div className="flex items-center bg-gray-200 w-full py-5 lg:w-30">
+        <div className="flex items-center bg-gray-300 w-full py-5 lg:w-30">
           <div className="lg:rotate-270 text-center w-full lg:h-35 lg:w-40">
             <h1 className="lg:text-3xl text-3xl text-gray-700">Customer</h1>
             <span className="lg:text-6xl text-6xl text-gray-700 font-bold">
@@ -11,7 +11,7 @@ export default function CustomerCareClient() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center lg:flex-row gap-10 z-10 p-10 bg-gray-100">
+        <div className="flex flex-col items-center lg:flex-row gap-10 z-10 p-10 bg-gray-200">
           {/* Customer Service */}
           <div className="lg:max-w-[500px] max-w-[700px]">
             <div className="mb-10">
@@ -66,7 +66,7 @@ export default function CustomerCareClient() {
       </div>
 
       {/* SECOND SECTION */}
-      <div className="flex items-center justify-center bg-white p-10 w-full">
+      <div className="flex items-center justify-center bg-gray-100 p-10 w-full">
         <div className="flex flex-col lg:flex-row gap-10 lg:max-w-[1300px] max-w-[600px] lg:p-10">
           {/* One */}
           <div>
