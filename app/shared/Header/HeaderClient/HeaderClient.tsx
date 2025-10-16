@@ -7,28 +7,31 @@ export default function HeaderClient() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#00558C] backdrop-blur-lg">
-      <div className="max-w-[80rem] mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-4">
+    <header className="bg-[#00558C] border-b-1 border-white backdrop-blur-lg fixed z-100 w-full">
+      <div className="max-w-[80rem] mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-3 md:gap-5">
-            <div className="relative w-28 sm:w-40 md:w-56 lg:w-72">
+          <div className="flex items-center gap-3 md:gap-2">
+            <div className="relative w-28 sm:w-40 md:w-56 lg:w-40">
               <Image
                 src="/assets/image/logo/Logo-White.svg"
                 alt="Logo"
-                width={300}
-                height={100}
-                className="w-full h-auto"
+                width={200}
+                height={10}
               />
             </div>
-            <span className="bg-white w-[1.5px] h-10" />
-            <h1 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-light italic">
-              Agents
-            </h1>
+            <span className="bg-gray-300 w-[1.5px] h-10" />
+            <h1 className="text-gray-200 text-lg font-light">Agents</h1>
           </div>
 
           {/* Desktop Icons */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center">
+            <a
+              href="/contact"
+              className="ml-2 px-5 py-2 text-white border-1 border-white hover:bg-white/20 text-sm font-light rounded-lg uppercase tracking-widest transition-all"
+            >
+              Contact
+            </a>
             {[
               { icon: <Facebook />, href: "https://facebook.com" },
               { icon: <Instagram />, href: "https://instagram.com" },
@@ -40,19 +43,13 @@ export default function HeaderClient() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 hover:bg-white/20 transition-all rounded-full"
+                className="p-2 transition-all rounded-full"
               >
                 {item.icon && (
                   <span className="w-5 h-5 text-white">{item.icon}</span>
                 )}
               </a>
             ))}
-            <a
-              href="/contact"
-              className="ml-2 px-5 py-2 text-white/80 bg-white/10 hover:bg-white/20 text-sm font-light rounded-full uppercase tracking-widest transition-all"
-            >
-              Contact
-            </a>
           </div>
 
           {/* Mobile Menu Button */}

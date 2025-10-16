@@ -89,7 +89,7 @@ export default function AgentProfile({ data }: AgentProfileProps) {
 
   // ─── UI ─────────────────────────────
   return (
-    <section className="max-w-5xl mx-auto px-4 py-8">
+    <section className="max-w-[78rem] mx-auto px-4 py-8">
       {/* ───── Desktop Tabs ───── */}
       {!isMobile && (
         <>
@@ -110,7 +110,7 @@ export default function AgentProfile({ data }: AgentProfileProps) {
             ))}
           </div>
 
-          <div className="transition-opacity duration-500 ease-in-out opacity-100">
+          <div className="transition-opacity duration-500 ease-in-out bg-white/50 opacity-100 text-lg p-12">
             {activeTab === "about" ? aboutContent : locationContent}
           </div>
         </>
@@ -139,7 +139,9 @@ export default function AgentProfile({ data }: AgentProfileProps) {
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="p-4 bg-gray-50 rounded-md">{content}</div>
+                <div className="p-4 bg-gray-50 rounded-md text-xs">
+                  {content}
+                </div>
               </div>
             </div>
           ))}
