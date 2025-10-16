@@ -11,7 +11,7 @@ export default function HeaderClient() {
       <div className="max-w-[80rem] mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-3 md:gap-2">
+          <div className="flex items-center gap-2">
             <div className="relative w-28 sm:w-40 md:w-56 lg:w-40">
               <Image
                 src="/assets/image/logo/Logo-White.svg"
@@ -20,15 +20,17 @@ export default function HeaderClient() {
                 height={10}
               />
             </div>
-            <span className="bg-gray-300 w-[1.5px] h-10" />
-            <h1 className="text-gray-200 text-lg font-light">Agents</h1>
+            <span className="bg-gray-300 w-[1.5px] lg:h-10 md:h-7 h-5" />
+            <h1 className="text-gray-200 lg:text-lg text-sm font-light">
+              Agents
+            </h1>
           </div>
 
           {/* Desktop Icons */}
           <div className="hidden lg:flex items-center">
             <a
               href="/contact"
-              className="ml-2 px-5 py-2 text-white border-1 border-white hover:bg-white/20 text-sm font-light rounded-lg uppercase tracking-widest transition-all"
+              className="ml-2 px-5 py-2 text-white border-1 border-white hover:bg-white/20 text-sm font-light rounded-sm uppercase tracking-widest transition-all"
             >
               Contact
             </a>
@@ -73,7 +75,7 @@ export default function HeaderClient() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all"
+                className="p-2"
               >
                 <Facebook className="w-5 h-5 text-white" />
               </a>
@@ -81,7 +83,7 @@ export default function HeaderClient() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all"
+                className="p-2"
               >
                 <Instagram className="w-5 h-5 text-white" />
               </a>
@@ -89,7 +91,7 @@ export default function HeaderClient() {
                 href="https://tiktok.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all"
+                className="p-2"
               >
                 <Music2 className="w-5 h-5 text-white" />
               </a>
@@ -97,7 +99,7 @@ export default function HeaderClient() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all"
+                className="p-2"
               >
                 <Linkedin className="w-5 h-5 text-white" />
               </a>
@@ -105,7 +107,7 @@ export default function HeaderClient() {
 
             <a
               href="/contact"
-              className="mt-2 px-4 py-2 border border-white text-white text-sm font-medium hover:bg-white hover:text-[#00558C] transition-all duration-200 rounded-full"
+              className="mt-2 px-4 py-2 border w-full text-center border-white text-white text-sm font-medium hover:bg-white hover:text-[#00558C] transition-all duration-200 rounded-sm"
             >
               Contact
             </a>

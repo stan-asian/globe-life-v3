@@ -63,7 +63,7 @@ export default function AgentProfile({ data }: AgentProfileProps) {
 
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="mt-6 w-full bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 text-sm font-medium rounded-md transition-colors duration-300"
+        className="mt-6 w-full bg-gray-300 hover:bg-gray-300 text-gray-800 py-2 text-sm font-medium rounded-md transition-colors duration-300"
       >
         {isExpanded ? "read less" : "read more"}
       </button>
