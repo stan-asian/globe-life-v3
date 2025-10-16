@@ -30,7 +30,7 @@ interface Agent {
   quote: string;
 }
 
-interface HeroData {
+export interface HeroData {
   agent: Agent;
 }
 

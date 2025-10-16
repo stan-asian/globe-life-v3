@@ -23,19 +23,22 @@ export default function FirstSlide() {
               <span className="text-yellow-300">A (Excellent)</span> Financial
               Strength Rating from A.M Best Company (as of 10/24). Globe Life
               has maintained a rating of A rating or higher for over 50 years.
-              For the latest Best's Credit Rating, access{" "}
+              For the latest Best&apos;s Credit Rating, access{" "}
               <a href="https://www.ambest.com" className="underline">
                 AMBest.com
               </a>
               .
             </li>
             <li className="text-gray-200 text-xs md:text-lg lg:text-lg">
-              <span className="text-yellow-300">AA- or "Very Strong"</span>
-              Financial Strength Rating From Standard & Poor's (as of 3/24).
+              <span className="text-yellow-300">
+                AA- or &quot;Very Strong&quot;
+              </span>{" "}
+              Financial Strength Rating From Standard &amp; Poor&apos;s (as of
+              3/24).
             </li>
             <li className="text-gray-200 text-xs md:text-lg lg:text-lg">
-              <span className="text-yellow-300">A+ or "Strong"</span> for
-              Insurer Financial Strength by Fitch (as of 9/24).
+              <span className="text-yellow-300">A+ or &quot;Strong&quot;</span>{" "}
+              for Insurer Financial Strength by Fitch (as of 9/24).
             </li>
             <li className="text-gray-200 text-xs md:text-lg lg:text-lg">
               <span className="text-yellow-300">A+ Rating</span> from the Better

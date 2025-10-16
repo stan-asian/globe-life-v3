@@ -7,7 +7,7 @@ interface Slide {
   id: number;
   URL: string;
   alt?: string;
-  content: any;
+  content: React.ReactNode; // ✅ FIXED: Replaces 'any'
 }
 
 const slides: Slide[] = [
