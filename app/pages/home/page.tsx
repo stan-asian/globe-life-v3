@@ -6,6 +6,8 @@ import StartCareer from "./sections/StartCareer/StartCareer";
 import Slider from "./sections/Slider/Slider";
 
 import Majidi from "@/app/pages/home/agent-info/Majidi.json";
+import CustomerCare from "./sections/CustomerCare/CustomerCare";
+import ContactUs from "./sections/ContactUs/ContactUs";
 
 export default function Home() {
   return (
@@ -17,6 +19,8 @@ export default function Home() {
         <Ratings />
         <StartCareer />
         <Slider />
+        <CustomerCare />
+        <ContactUs />
       </main>
     </>
   );

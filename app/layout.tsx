@@ -35,9 +35,9 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${cedarville.variable} ${robotoSlab.variable}`}
     >
-      <body>
+      <body className="background">
         <Header />
-        {children}
+        <main className="lg:pt-21 pt-15">{children}</main>
         <Footer />
       </body>
     </html>

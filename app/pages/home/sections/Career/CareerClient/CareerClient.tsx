@@ -33,7 +33,7 @@ export default function CareerClient() {
   };
 
   return (
-    <section className="relative bg-[#81d5d3] overflow-hidden py-8 max-[1280px]:rounded-none rounded-bl-[15rem]">
+    <section className="relative bg-[#81d5d3] overflow-hidden py-20 max-[1280px]:rounded-none rounded-bl-[15rem]">
       <div className="max-w-6xl mx-auto flex flex-col max-[1280px]:flex-col xl:flex-row justify-between px-10 max-[1280px]:px-6 z-10 xl:mr-20">
         {/* LEFT SIDE */}
         <div className="xl:w-1/2 flex justify-center max-[1280px]:justify-center">
@@ -65,7 +65,7 @@ export default function CareerClient() {
         {/* RIGHT SIDE */}
         <div className="xl:w-1/2 w-full flex flex-col items-center justify-center max-[1280px]:mt-5">
           {/* Main Video */}
-          <div className="lg:w-full aspect-video overflow-hidden shadow-2xl bg-black border-3 border-[#00558C] z-10">
+          <div className="lg:w-full aspect-video overflow-hidden shadow-2xl">
             <video
               key={videos[activeIndex].id}
               src={videos[activeIndex].src}
