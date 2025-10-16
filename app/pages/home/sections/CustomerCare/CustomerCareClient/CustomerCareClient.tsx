@@ -35,9 +35,9 @@ export default function CustomerCareClient() {
                 Customer Login
               </h1>
               <p className="text-sm lg:text-lg">
-                We've made it easy to answer your policy questions 24-hours a
-                day — online! To view and manage your policy information, click
-                the button below.
+                We&apos;ve made it easy to answer your policy questions 24-hours
+                a day — online! To view and manage your policy information,
+                click the button below.
               </p>
             </div>
             <button className="text-[#00558C] font-bold] border-2 border-[#00558C] py-1 px-6 rounded-sm w-full">
@@ -52,9 +52,10 @@ export default function CustomerCareClient() {
                 File a Claim
               </h1>
               <p className="text-sm lg:text-lg">
-                On our ‘Claims’ page, you will find helpful information
-                regarding the claims filing process for various types of
-                benefits, filing instructions, printable forms, and more.
+                On our &lsquo;Claims&rsquo; page, you will find helpful
+                information regarding the claims filing process for various
+                types of benefits, filing instructions, printable forms, and
+                more.
               </p>
             </div>
             <button className="text-[#00558C] font-bold] border-2 border-[#00558C] py-1 px-6 rounded-sm w-full">
