@@ -20,14 +20,14 @@ export default function FirstSlide() {
 
       {/* Additional Info */}
       <p className="text-xs md:text-sm bg-black/50 p-2 rounded">
-        Your Child Safe Kit® will help you record and save vital information
-        about your child including: Height & Weight, Blood Type, Fingerprints, a
-        DNA Sample, and more.
+        Your Child Safe Kit&reg; will help you record and save vital information
+        about your child including: Height &amp; Weight, Blood Type,
+        Fingerprints, a DNA Sample, and more.
       </p>
 
       {/* Disclaimer */}
       <p className="text-[10px] md:text-[12px] mt-2">
-        *U.S. Department of Justice's Federal Bureau of Investigation,{" "}
+        *U.S. Department of Justice&apos;s Federal Bureau of Investigation,{" "}
         <a
           className="underline"
           href="https://www.fbi.gov/file-repository/cjis/2022-ncic-missing-person-and-unidentified-person-statistics.pdf/view"
@@ -39,7 +39,7 @@ export default function FirstSlide() {
           className="underline"
           href="https://canadasmissing.ca/pubs/2022/index-eng.htm"
         >
-          Canada's Missing – 2022 Fast Fact Sheet
+          Canada&apos;s Missing – 2022 Fast Fact Sheet
         </a>
       </p>
     </div>
