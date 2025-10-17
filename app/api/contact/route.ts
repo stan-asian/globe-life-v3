@@ -1,6 +1,8 @@
-"use server"
+"use server";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer"
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
