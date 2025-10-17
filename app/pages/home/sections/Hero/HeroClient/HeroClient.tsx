@@ -57,7 +57,7 @@ export default function HeroClient({ data }: { data: HeroData }) {
       <div className="max-w-7xl mx-auto relative -mt-20 sm:-mt-28 md:-mt-32 lg:px-8 z-10">
         <div className="overflow-hidden flex flex-col lg:flex-row">
           {/* Left Section */}
-          <div className="flex-1 p-6 sm:p-8 lg:p-10 lg:pl-0 bg-white/0">
+          <div className="flex-1 p-6 sm:p-8 lg:p-10 lg:pl-0">
             {/* Agent Info */}
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-8">
               <Image

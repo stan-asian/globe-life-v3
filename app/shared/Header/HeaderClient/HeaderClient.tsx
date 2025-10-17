@@ -7,7 +7,7 @@ export default function HeaderClient() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#00558C] border-b-1 border-white backdrop-blur-lg fixed z-100 w-full">
+    <header className="bg-[#00558C] border-b-3 border-white backdrop-blur-lg fixed z-100 w-full">
       <div className="max-w-[80rem] mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -30,7 +30,7 @@ export default function HeaderClient() {
           <div className="hidden lg:flex items-center">
             <a
               href="/contact"
-              className="ml-2 px-5 py-2 text-white border-1 border-white hover:bg-white/20 text-sm font-light rounded-sm uppercase tracking-widest transition-all"
+              className="ml-2 px-5 py-2 text-white border-2 border-white bg-[#0c4f7b] hover:bg-white/20 text-sm font-light rounded-sm uppercase tracking-widest transition-all"
             >
               Contact
             </a>

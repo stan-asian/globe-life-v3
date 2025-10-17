@@ -23,7 +23,7 @@ export default function CustomerCareClient() {
                 Monday through Friday from 8am - 4:30pm Central Standard time.
               </p>
             </div>
-            <button className="text-[#00558C] font-bold] border-2 border-[#00558C] py-1 px-6 rounded-sm w-full">
+            <button className="text-[#2EA24F] font-bold] border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
               (800) 433-3405
             </button>
           </div>
@@ -40,7 +40,7 @@ export default function CustomerCareClient() {
                 click the button below.
               </p>
             </div>
-            <button className="text-[#00558C] font-bold] border-2 border-[#00558C] py-1 px-6 rounded-sm w-full">
+            <button className="text-[#2EA24F] font-bold] border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
               Log In
             </button>
           </div>
@@ -58,7 +58,7 @@ export default function CustomerCareClient() {
                 more.
               </p>
             </div>
-            <button className="text-[#00558C] font-bold] border-2 border-[#00558C] py-1 px-6 rounded-sm w-full">
+            <button className="text-[#2EA24F] font-bold] border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
               File a Claim
             </button>
           </div>
