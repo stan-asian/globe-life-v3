@@ -1,4 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+
+import ModalPortal from "@/app/components/ModalPortal";
+import CareerModal from "@/app/shared/CareerModal/CareerModal";
 
 interface Specialization {
   title: string;
@@ -37,6 +43,8 @@ export interface HeroData {
 export default function HeroClient({ data }: { data: HeroData }) {
   const { agent } = data;
   const { officeInfo, specialization } = agent;
+
+  const [isOpen, setIsOpen] = useState(false);
 
   if (!agent) return <p>No agent data found.</p>;
 
@@ -82,7 +90,7 @@ export default function HeroClient({ data }: { data: HeroData }) {
             </div>
 
             {/* Description */}
-            <div className="lg:mt-5 pt-5 text-center sm:text-left lg:border-t-4 lg:border-[#00558C] border-dashed">
+            <div className="lg:mt-5 pt-5 text-center sm:text-left lg:border-t-4 lg:border-[#00558C]/40 border-dashed">
               {" "}
               <h2 className="text-lg sm:text-xl font-semibold text-gray-600">
                 {" "}
@@ -92,10 +100,36 @@ export default function HeroClient({ data }: { data: HeroData }) {
                 {" "}
                 {agent.description.body}{" "}
               </p>{" "}
-              <button className="mt-6 bg-[#2EA24F] text-white px-6 py-2.5 rounded-md hover:bg-[#004673] transition font-medium lg:text-sm text-xs tracking-wide shadow-sm hover:shadow-md">
-                {" "}
-                Learn more about this opportunity{" "}
-              </button>{" "}
+              {/* Trigger button */}
+              <button
+                onClick={() => setIsOpen(true)}
+                className="bg-green-600 text-white px-4 py-2 text-xs lg:text-sm rounded-lg hover:bg-green-700 mt-5"
+              >
+                Learn more about this Opportunity!
+              </button>
+              {/* Modal */}
+              {isOpen && (
+                <ModalPortal>
+                  <div
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm"
+                    role="dialog"
+                    aria-modal="true"
+                  >
+                    <div className="relative bg-white shadow-xl w-full max-w-2xl mx-3">
+                      {/* Close Button */}
+                      <button
+                        onClick={() => setIsOpen(false)}
+                        className="absolute top-3 right-3 bg-gray-100 p-2 rounded-full hover:bg-gray-200"
+                        aria-label="Close"
+                      >
+                        ✕
+                      </button>
+
+                      <CareerModal />
+                    </div>
+                  </div>
+                </ModalPortal>
+              )}
             </div>
 
             {/* Specialization Section (moved here) */}
