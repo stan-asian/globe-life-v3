@@ -87,7 +87,7 @@ export default function SliderClient() {
 
   // ---- Navigation Handlers ----
   const goToNext = () => setCurrentIndex((prev) => prev + 1);
-  const goToPrev = () => setCurrentIndex((prev) => prev - 1);
+  // const goToPrev = () => setCurrentIndex((prev) => prev - 1);
 
   // ---- Render ----
   return (

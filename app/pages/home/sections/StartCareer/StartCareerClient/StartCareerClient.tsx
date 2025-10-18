@@ -1,6 +1,13 @@
 "use client";
 
+import { useState } from "react";
+
+import ModalPortal from "@/app/components/ModalPortal";
+import CareerModal from "@/app/shared/CareerModal/CareerModal";
+
 export default function NewCareerSection() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section className="relative w-full bg-gradient-to-r from-[#004D73] to-[#0076A3] text-white overflow-hidden">
       {/* Main Content */}
@@ -34,9 +41,36 @@ export default function NewCareerSection() {
             Income Division gives you freedom. The choice is yours.
           </p>
 
-          <button className="bg-[#00558C] hover:bg-[#004B7A] text-white font-semibold py-3 px-8 rounded-md shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out">
-            Get Started Now
+          {/* Trigger button */}
+          <button
+            onClick={() => setIsOpen(true)}
+            className="bg-[#00558C] text-white px-10 py-2 text-xs lg:text-sm rounded-lg hover:bg-[#00558C]/20 mt-2"
+          >
+            Get Started Now!
           </button>
+          {/* Modal */}
+          {isOpen && (
+            <ModalPortal>
+              <div
+                className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm"
+                role="dialog"
+                aria-modal="true"
+              >
+                <div className="relative bg-white rounded-xl shadow-xl w-full max-w-2xl mx-3">
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="absolute top-3 right-3 bg-gray-100 p-2 rounded-full hover:bg-gray-200"
+                    aria-label="Close"
+                  >
+                    ✕
+                  </button>
+
+                  <CareerModal />
+                </div>
+              </div>
+            </ModalPortal>
+          )}
 
           <p className="mt-6 italic text-sm text-gray-200 drop-shadow-sm">
             Reihaneh Majidi,{" "}

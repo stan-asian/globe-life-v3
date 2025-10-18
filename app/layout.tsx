@@ -40,6 +40,7 @@ export default function RootLayout({
         <main className="lg:pt-21 pt-15">{children}</main>
         <Footer />
       </body>
+      <PrelineScriptWrapper />
     </html>
   );
 }
