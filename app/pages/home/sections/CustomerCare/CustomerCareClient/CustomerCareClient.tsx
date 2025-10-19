@@ -23,9 +23,11 @@ export default function CustomerCareClient() {
                 Monday through Friday from 8am - 4:30pm Central Standard time.
               </p>
             </div>
-            <button className="text-[#2EA24F] font-bold] border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
-              (800) 433-3405
-            </button>
+            <a href="tel: 1-800-433-3405">
+              <button className="text-[#2EA24F] border-2 cursor-pointer border-[#2EA24F] py-1 px-6 rounded-sm w-full">
+                (800) 433-3405
+              </button>
+            </a>
           </div>
 
           {/* Customer Login */}
@@ -40,9 +42,11 @@ export default function CustomerCareClient() {
                 click the button below.
               </p>
             </div>
-            <button className="text-[#2EA24F] font-bold] border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
-              Log In
-            </button>
+            <a href="https://eservicecenterail.ailife.com/Defaultail.aspx">
+              <button className="text-[#2EA24F] cursor-pointer border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
+                Log In
+              </button>
+            </a>
           </div>
 
           {/* File a Claim */}
@@ -58,9 +62,11 @@ export default function CustomerCareClient() {
                 more.
               </p>
             </div>
-            <button className="text-[#2EA24F] font-bold] border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
-              File a Claim
-            </button>
+            <a href="https://www.ailife.com/Policy/Claim">
+              <button className="text-[#2EA24F] cursor-pointer border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
+                File a Claim
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -81,9 +87,11 @@ export default function CustomerCareClient() {
                 credit unions, associations, and their families.
               </p>
             </div>
-            <button className="lg:mt-5 border-1 w-full bg-[#2EA24F] lg:text-xl p-2 text-white rounded-md">
-              Learn More
-            </button>
+            <a href="https://www.ailife.com/About">
+              <button className="lg:mt-5 border-1 w-full cursor-pointer bg-[#2EA24F] lg:text-xl p-2 text-white rounded-md">
+                Learn More
+              </button>
+            </a>
           </div>
           {/* Two */}
           <div>
@@ -98,9 +106,11 @@ export default function CustomerCareClient() {
                 help you be more prepared to face the future.
               </p>
             </div>
-            <button className="lg:mt-5 border-1 w-full bg-[#2EA24F] lg:text-xl p-2 text-white rounded-md">
-              Explore Coverage
-            </button>
+            <a href="https://www.ailife.com/Products">
+              <button className="lg:mt-5 border-1 w-full cursor-pointer bg-[#2EA24F] lg:text-xl p-2 text-white rounded-md">
+                Explore Coverage
+              </button>
+            </a>
           </div>
           {/* Three */}
           <div>
@@ -115,9 +125,11 @@ export default function CustomerCareClient() {
                 no-cost partners program.
               </p>
             </div>
-            <button className="lg:mt-5 border-1 w-full bg-[#2EA24F] lg:text-xl p-2 text-white rounded-md">
-              Learn More
-            </button>
+            <a href="https://www.ailife.com/Products/nocostestimate">
+              <button className="lg:mt-5 border-1 w-full cursor-pointer bg-[#2EA24F] lg:text-xl p-2 text-white rounded-md">
+                Learn More
+              </button>
+            </a>
           </div>
         </div>
       </div>

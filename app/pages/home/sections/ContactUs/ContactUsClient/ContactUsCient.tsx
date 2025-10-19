@@ -110,7 +110,10 @@ export default function ContactUsClient() {
   };
 
   return (
-    <div className="py-12 px-6 md:px-16 bg-gray-200">
+    <div
+      className="py-12 px-6 md:px-16 bg-gray-200 scroll-mt-20"
+      id="contactUs"
+    >
       <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-start p-4">
         {/* Left Section */}
         <div className="space-y-8">
