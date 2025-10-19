@@ -178,13 +178,20 @@ export default function HeroClient({ data }: { data: HeroData }) {
               </h3>
 
               {/* Google Rating */}
-              <div className="flex items-center lg:justify-start mb-8">
-                <i className="fa-solid fa-star text-orange-400 text-3xl mr-1"></i>
-                <span className="text-gray-800 font-medium text-base">4.9</span>
-                <span className="text-gray-500 text-sm ml-1">
+              <a
+                href="https://maps.app.goo.gl/CBED2qHmZACFkVgm9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center lg:justify-start mb-8 group"
+              >
+                <i className="fa-solid fa-star text-orange-400 text-3xl mr-1 group-hover:animate-spin"></i>
+                <span className="text-gray-800 font-medium text-base group-hover:text-green-700 transition">
+                  4.9
+                </span>
+                <span className="text-gray-500 text-sm ml-1 group-hover:text-lg group-hover:text-green-600 transition">
                   Google Rating
                 </span>
-              </div>
+              </a>
 
               <div className="space-y-6 text-sm text-gray-600">
                 {/* Phone */}

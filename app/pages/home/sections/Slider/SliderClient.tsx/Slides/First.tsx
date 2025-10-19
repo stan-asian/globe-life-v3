@@ -14,9 +14,11 @@ export default function FirstSlide() {
       </p>
 
       {/* Button */}
-      <button className="bg-green-600 hover:bg-green-700 text-[10px] md:text-sm text-white font-semibold px-3 py-2 rounded mb-4">
-        Get your no-cost Child Safe Kit today
-      </button>
+      <a href="https://www.childsafekit.com/ail">
+        <button className="bg-green-600 hover:bg-green-700 text-[10px] md:text-sm text-white font-semibold px-3 py-2 rounded mb-4">
+          Get your no-cost Child Safe Kit today
+        </button>
+      </a>
 
       {/* Additional Info */}
       <p className="text-xs md:text-sm bg-black/50 p-2 rounded">

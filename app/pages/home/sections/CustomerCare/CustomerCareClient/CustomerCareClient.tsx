@@ -1,6 +1,9 @@
 export default function CustomerCareClient() {
   return (
-    <section className="flex flex-col justify-center items-center lg:gap-10 w-full">
+    <section
+      className="flex flex-col justify-center items-center lg:gap-10 w-full scroll-mt-40"
+      id="customerService"
+    >
       <div className="flex flex-col lg:flex-row lg:max-w-[1380px] w-full h-full bg-white lg:border-l-10 border-t-10 lg:border-t-0 border-[#87d7d5]">
         <div className="flex items-center bg-gray-300 w-full py-5 lg:w-30">
           <div className="lg:rotate-270 text-center w-full lg:h-35 lg:w-40">
@@ -24,7 +27,7 @@ export default function CustomerCareClient() {
               </p>
             </div>
             <a href="tel: 1-800-433-3405">
-              <button className="text-[#2EA24F] border-2 cursor-pointer border-[#2EA24F] py-1 px-6 rounded-sm w-full">
+              <button className="text-[#00558C] border-2 cursor-pointer border-[#00558C] py-1 px-6 rounded-sm w-full">
                 (800) 433-3405
               </button>
             </a>
@@ -43,7 +46,7 @@ export default function CustomerCareClient() {
               </p>
             </div>
             <a href="https://eservicecenterail.ailife.com/Defaultail.aspx">
-              <button className="text-[#2EA24F] cursor-pointer border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
+              <button className="text-[#00558C] cursor-pointer border-2 border-[#00558C] py-1 px-6 rounded-sm w-full">
                 Log In
               </button>
             </a>
@@ -63,7 +66,7 @@ export default function CustomerCareClient() {
               </p>
             </div>
             <a href="https://www.ailife.com/Policy/Claim">
-              <button className="text-[#2EA24F] cursor-pointer border-2 border-[#2EA24F] py-1 px-6 rounded-sm w-full">
+              <button className="text-[#00558C] cursor-pointer border-2 border-[#00558C] py-1 px-6 rounded-sm w-full">
                 File a Claim
               </button>
             </a>

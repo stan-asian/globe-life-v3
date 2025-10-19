@@ -49,7 +49,7 @@ export default function CareerModalClient({ onClose }: CareerModalClientProps) {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const res = await axios.get("/api/countries", { timeout: 60000 });
+        const res = await axios.get("/api/countries");
         const data = res.data;
         if (Array.isArray(data)) {
           setCountries(data);
