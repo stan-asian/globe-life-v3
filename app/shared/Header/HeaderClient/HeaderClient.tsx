@@ -11,7 +11,7 @@ export default function HeaderClient() {
       <div className="max-w-[80rem] mx-auto px-4 md:px-6 lg:px-8 py-3 md:py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <a className="flex items-center gap-2" href="https://www.ailife.com/">
             <div className="relative w-28 sm:w-40 md:w-56 lg:w-40">
               <Image
                 src="/assets/image/logo/Logo-White.svg"
@@ -24,12 +24,12 @@ export default function HeaderClient() {
             <h1 className="text-gray-200 lg:text-lg text-sm font-light">
               Agents
             </h1>
-          </div>
+          </a>
 
           {/* Desktop Icons */}
           <div className="hidden lg:flex items-center">
             <a
-              href="/contact"
+              href="#contactUs"
               className="ml-2 px-5 py-2 text-white border-1 border-white bg-[#0c4f7b] hover:bg-white/20 text-sm font-light rounded-sm uppercase tracking-widest transition-all"
             >
               Contact

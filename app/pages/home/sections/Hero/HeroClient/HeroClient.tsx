@@ -49,7 +49,7 @@ export default function HeroClient({ data }: { data: HeroData }) {
   if (!agent) return <p>No agent data found.</p>;
 
   return (
-    <section className="relative w-full bg-white pb-10">
+    <section className="relative w-full bg-gray-100 pb-10">
       {/* Hero Background */}
       <div className="relative h-[250px] sm:h-[290px] md:h-[300px] overflow-hidden">
         <Image
@@ -133,7 +133,7 @@ export default function HeroClient({ data }: { data: HeroData }) {
             </div>
 
             {/* Specialization Section (moved here) */}
-            <div className="bg-white w-full flex flex-col sm:items-start items-center gap-5 mt-10">
+            <div className="bg-gray-100 w-full flex flex-col sm:items-start items-center gap-5 mt-10">
               <span className="font-semibold italic text-gray-800 text-sm sm:text-lg text-center sm:text-left block">
                 Specializing In:
               </span>

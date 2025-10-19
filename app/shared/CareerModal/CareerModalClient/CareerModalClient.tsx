@@ -49,9 +49,8 @@ export default function CareerModalClient({ onClose }: CareerModalClientProps) {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const res = await axios.get("/api/countries", { timeout: 10000 });
+        const res = await axios.get("/api/countries", { timeout: 60000 });
         const data = res.data;
-
         if (Array.isArray(data)) {
           setCountries(data);
         } else if (data && Array.isArray(data.countries)) {
@@ -279,7 +278,7 @@ export default function CareerModalClient({ onClose }: CareerModalClientProps) {
                   </option>
                   {!loadingCountries &&
                     countries.map((c) => (
-                      <option key={c.code} value={c.name}>
+                      <option key={c.code || c.name} value={c.name}>
                         {c.name}
                       </option>
                     ))}
