@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface MessageState {
   text: string;
@@ -16,10 +17,13 @@ export default function ContactUsClient() {
     zipCode: "",
     phoneNumber: "",
     comments: "",
+    captchaToken: "",
   });
 
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<MessageState | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   // ✅ Handle input changes and clear message when user types
   const handleChange = (
@@ -27,19 +31,17 @@ export default function ContactUsClient() {
   ) => {
     const { name, value } = e.target;
 
-    // Remove message when user starts typing
-    setMessage(null);
+    setMessage(null); // clear message on input
 
-    // Validate numeric fields
+    // Only allow digits for numeric fields
     if (name === "zipCode" || name === "phoneNumber") {
-      // Only allow digits
       if (!/^\d*$/.test(value)) return;
     }
 
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // ✅ Validate fields before submitting
+  // ✅ Validate before submitting
   const validate = () => {
     if (
       !formData.firstName ||
@@ -60,16 +62,9 @@ export default function ContactUsClient() {
       });
       return false;
     }
-    if (formData.zipCode && !/^\d+$/.test(formData.zipCode)) {
+    if (!captchaToken) {
       setMessage({
-        text: "ZIP Code must contain only numbers.",
-        isSuccess: false,
-      });
-      return false;
-    }
-    if (formData.phoneNumber && !/^\d+$/.test(formData.phoneNumber)) {
-      setMessage({
-        text: "Phone Number must contain only numbers.",
+        text: "Please verify that you're not a robot.",
         isSuccess: false,
       });
       return false;
@@ -86,9 +81,18 @@ export default function ContactUsClient() {
 
     setLoading(true);
     try {
-      const response = await axios.post("/api/contact", formData);
+      const response = await axios.post("/api/contact", {
+        ...formData,
+        captchaToken,
+      });
+
       if (response.status === 200) {
-        setMessage({ text: "Message sent successfully!", isSuccess: true });
+        setMessage({
+          text: "✅ Sent Successfully!",
+          isSuccess: true,
+        });
+
+        // ✅ Reset form
         setFormData({
           firstName: "",
           lastName: "",
@@ -96,14 +100,26 @@ export default function ContactUsClient() {
           zipCode: "",
           phoneNumber: "",
           comments: "",
+          captchaToken: "",
         });
+        setCaptchaToken(null);
+
+        // ✅ Reset reCAPTCHA
+        recaptchaRef.current?.reset();
+
+        // ✅ Automatically remove success message after a few seconds
+        setTimeout(() => setMessage(null), 4000);
       }
     } catch (error) {
       console.error(error);
       setMessage({
-        text: "Failed to send message. Please try again later.",
+        text: "❌ Failed to send message. Please try again later.",
         isSuccess: false,
       });
+
+      // Refresh captcha after failed attempt too
+      recaptchaRef.current?.reset();
+      setCaptchaToken(null);
     } finally {
       setLoading(false);
     }
@@ -129,7 +145,10 @@ export default function ContactUsClient() {
 
           <p className="text-gray-700 text-base">
             Questions about an existing policy? Contact customer service{" "}
-            <a href="#" className="text-green-600 font-medium hover:underline">
+            <a
+              href="#customerService"
+              className="text-green-600 font-medium hover:underline"
+            >
               here
             </a>
             .
@@ -149,88 +168,107 @@ export default function ContactUsClient() {
           </div>
         </div>
 
-        {/* Right Section (Form) */}
+        {/* Right Section (Form + Alerts) */}
         <div>
+          {/* ✅ Success or Failure Message */}
           {message && (
-            <div
-              className={`flex justify-center gap-1 rounded-lg items-center text-center border-2 text-sm w-full h-10 ${
-                message.isSuccess
-                  ? "border-green-400 text-green-400"
-                  : "border-red-400 text-red-400"
-              } mb-4`}
-            >
-              <i
-                className={`fa-solid ${
-                  message.isSuccess ? "fa-paper-plane" : "fa-circle-exclamation"
-                }`}
-              ></i>
-              <p className="font-bold italic">{message.text}</p>
+            <div className="flex flex-col items-center justify-center py-8 mb-6 bg-white rounded-lg shadow">
+              {message.isSuccess ? (
+                <>
+                  <h2 className="text-2xl font-semibold text-green-600">
+                    ✅ Sent Successfully!
+                  </h2>
+                  <p className="text-gray-600 mt-2 text-sm text-center">
+                    Your message has been received. We’ll get back to you soon!
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h2 className="text-2xl font-semibold text-red-500">
+                    ❌ Message Failed
+                  </h2>
+                  <p className="text-gray-600 mt-2 text-sm text-center">
+                    {message.text}
+                  </p>
+                </>
+              )}
             </div>
           )}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name*"
-                value={formData.firstName}
-                onChange={handleChange}
-                className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name*"
-                value={formData.lastName}
-                onChange={handleChange}
-                className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email*"
-                value={formData.email}
-                onChange={handleChange}
-                className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
-              />
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <input
-                type="text"
-                name="zipCode"
-                placeholder="ZIP Code*"
-                value={formData.zipCode}
-                onChange={handleChange}
-                className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
-              />
-              <input
-                type="text"
-                name="phoneNumber"
-                placeholder="Phone Number*"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
-              />
-            </div>
+          {/* ✅ Show Form only if no success message */}
+          {!message?.isSuccess && (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name*"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name*"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email*"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
+                />
+              </div>
 
-            <textarea
-              name="comments"
-              placeholder="Comments*"
-              rows={4}
-              value={formData.comments}
-              onChange={handleChange}
-              className="border border-black bg-white p-2 w-full focus:ring-2 focus:ring-green-500 outline-none"
-            />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <input
+                  type="text"
+                  name="zipCode"
+                  placeholder="ZIP Code"
+                  value={formData.zipCode}
+                  onChange={handleChange}
+                  className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
+                />
+                <input
+                  type="text"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  className="border border-black bg-white p-2 focus:ring-2 focus:ring-green-500 outline-none"
+                />
+              </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-green-600 text-white font-semibold py-3 hover:bg-green-700 transition"
-            >
-              {loading ? "Sending..." : "Send Message"}
-            </button>
-          </form>
+              <textarea
+                name="comments"
+                placeholder="Comments*"
+                rows={4}
+                value={formData.comments}
+                onChange={handleChange}
+                className="border border-black bg-white p-2 w-full focus:ring-2 focus:ring-green-500 outline-none"
+              />
+
+              {/* ✅ reCAPTCHA */}
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
+                onChange={(token) => setCaptchaToken(token)}
+                ref={recaptchaRef}
+              />
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-green-600 text-white font-semibold py-3 hover:bg-green-700 transition"
+              >
+                {loading ? "Sending..." : "Send Message"}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </div>

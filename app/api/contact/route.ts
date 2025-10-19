@@ -1,24 +1,65 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer"; 
+import nodemailer from "nodemailer";
+import axios from "axios";
 
 export async function POST(req: Request) {
   try {
-    const { firstName, lastName, email, comments, phoneNumber, zipCode } = await req.json();
+    // ✅ Get all data from frontend
+    const {
+      firstName,
+      lastName,
+      email,
+      comments,
+      phoneNumber,
+      zipCode,
+      captchaToken, // ✅ Add captchaToken
+    } = await req.json();
 
+    // ✅ Validate required fields
     if (!firstName || !lastName || !email || !comments) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
     }
 
-    // Configure transporter using your Gmail
+    // ✅ Validate CAPTCHA before doing anything else
+    if (!captchaToken) {
+      return NextResponse.json(
+        { error: "Missing CAPTCHA token" },
+        { status: 400 }
+      );
+    }
+
+    // Verify CAPTCHA with Google API
+    const verifyUrl = "https://www.google.com/recaptcha/api/siteverify";
+    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+
+    const { data: captchaRes } = await axios.post(
+      verifyUrl,
+      new URLSearchParams({
+        secret: secretKey || "",
+        response: captchaToken,
+      })
+    );
+
+    if (!captchaRes.success) {
+      console.error("❌ CAPTCHA verification failed:", captchaRes);
+      return NextResponse.json(
+        { error: "CAPTCHA verification failed" },
+        { status: 400 }
+      );
+    }
+
+    // ✅ CAPTCHA passed — continue with email sending
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER, // your Gmail
-        pass: process.env.GMAIL_PASS, // App password (not your real Gmail password)
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS, // Use App Password
       },
     });
 
-    // Send the email
     await transporter.sendMail({
       from: `"Globe Life | Contact Form" <${process.env.GMAIL_USER}>`,
       to: process.env.EMAIL_RECEIVER,
@@ -65,11 +106,11 @@ export async function POST(req: Request) {
           </tr>
           <tr>
             <td style="padding: 8px 0; color: black; font-style: italic;"><strong>Phone:</strong></td>
-            <td style="padding: 8px 0;">${phoneNumber}</td>
+            <td style="padding: 8px 0;">${phoneNumber || "N/A"}</td>
           </tr>
           <tr style="background-color: #f9f9f9;">
             <td style="padding: 8px 0; color: black; font-style: italic;"><strong>ZIP Code:</strong></td>
-            <td style="padding: 8px 0;">${zipCode}</td>
+            <td style="padding: 8px 0;">${zipCode || "N/A"}</td>
           </tr>
         </table>
 
@@ -101,12 +142,15 @@ export async function POST(req: Request) {
     </div>
   </div>
 `,
-
     });
 
     return NextResponse.json({ message: "Email sent successfully!" }, { status: 200 });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+  } catch (error: unknown) {
+    // ✅ Handle errors safely (no `any`)
+    const message =
+      error instanceof Error ? error.message : "Unknown server error";
+    console.error("❌ Error sending email:", message);
+
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

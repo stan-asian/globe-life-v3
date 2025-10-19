@@ -106,7 +106,7 @@ export default function HeaderClient() {
             </div>
 
             <a
-              href="/contact"
+              href="#contactUs"
               className="mt-2 px-4 py-2 border w-full text-center border-white text-white text-sm font-medium hover:bg-white hover:text-[#00558C] transition-all duration-200 rounded-sm"
             >
               Contact
