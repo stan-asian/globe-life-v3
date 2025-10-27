@@ -209,7 +209,7 @@ export default function HeroClient({ data }: { data: HeroData }) {
 
                 {/* Address */}
                 <div className="flex items-center gap-2">
-                  <i className="fa-solid fa-location-dot text-[#00558C] text-3xl mt-0.5 shrink-0"></i>
+                  <i className="fa-solid fa-building text-[#00558C] text-3xl mt-0.5 shrink-0"></i>
                   <address className="not-italic whitespace-pre-line text-xs sm:text-sm">
                     {officeInfo.address}
                   </address>

@@ -12,13 +12,14 @@
             },
             "officeInfo": {
                 "phone": [
-                    "(402) 933-4995 – Career & Product Info",
+                    "(419) 607-8417 – Cellphone",
+                    "(254) 294-3141 - Office",
                     "(800) 433-3405 – Customer Service & Claims"
                 ],
-                    "address": "2809 S 160th St Suite 205, Omaha, Nebraska 68130",
-                        "languages": ["English"],
-                            "hours": "Monday – Friday, 9:00 am – 6:00 pm",
-                                "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1298.820414467073!2d-122.13476099896762!3d47.63267620602245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906d0a7860b6cb%3A0x3a297198bc864888!2sGlobe%20Life%20American%20Income%20Division%3A%20AO!5e1!3m2!1sen!2sjp!4v1760059890738!5m2!1sen!2sjp"
+            "address": "Cincinnati Ohio",
+            "languages": ["English"],
+            "hours": "Monday – Friday, 9:00 am – 6:00 pm, Saturday, 12:00 pm - 6:00 pm (Appointment Only)",
+            "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1298.820414467073!2d-122.13476099896762!3d47.63267620602245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54906d0a7860b6cb%3A0x3a297198bc864888!2sGlobe%20Life%20American%20Income%20Division%3A%20AO!5e1!3m2!1sen!2sjp!4v1760059890738!5m2!1sen!2sjp"
             },
             "specialization": [
                 { "title": "Individual Insurance", "icon": "fa-user" },

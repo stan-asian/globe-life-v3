@@ -45,28 +45,44 @@ export default function AgentProfile({ data }: AgentProfileProps) {
 
   // ─── Contents ─────────────────────────────
   const aboutContent = (
-    <div className="text-gray-700 leading-relaxed text-justify">
-      <p>{data.about.intro}</p>
+    <div className="text-gray-700 leading-relaxed">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        {/* 🎥 Video Section (Left) */}
+        <div className="flex justify-center">
+          <video
+            controls
+            controlsList="nodownload"
+            src={"/assets/video/Placeholder.mp4"}
+            className="rounded-xl shadow-lg w-full h-auto lg:max-w-3xl max-w-xl aspect-video"
+            autoPlay
+          ></video>
+        </div>
 
-      <p className="mt-4">{data.about.achievements}</p>
+        {/* 📝 Text Section (Right) */}
+        <div className="text-justify">
+          <p>{data.about.intro}</p>
 
-      {isExpanded && (
-        <>
-          {data.about.details.map((detail, index) => (
-            <p key={index} className="mt-4">
-              {detail}
-            </p>
-          ))}
-          <p className="mt-4">{data.about.closing}</p>
-        </>
-      )}
+          <p className="mt-4">{data.about.achievements}</p>
 
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="mt-6 w-full bg-gray-300 hover:bg-gray-300 text-gray-800 py-2 text-sm font-medium rounded-md transition-colors duration-300"
-      >
-        {isExpanded ? "read less" : "read more"}
-      </button>
+          {isExpanded && (
+            <>
+              {data.about.details.map((detail, index) => (
+                <p key={index} className="mt-4">
+                  {detail}
+                </p>
+              ))}
+              <p className="mt-4">{data.about.closing}</p>
+            </>
+          )}
+
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="mt-6 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 text-sm font-medium rounded-md transition-colors duration-300"
+          >
+            {isExpanded ? "read less" : "read more"}
+          </button>
+        </div>
+      </div>
     </div>
   );
 

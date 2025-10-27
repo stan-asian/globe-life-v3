@@ -159,11 +159,13 @@ export default function ContactUsClient() {
               Office Info
             </h2>
             <p className="text-gray-700 text-base">
-              <span className="font-semibold">Phone:</span> (513) 671-7220
+              <span className="font-semibold">Phone:</span> (419) 607-8417
             </p>
             <p className="text-gray-700 text-base">
-              <span className="font-semibold">Office Hours:</span> Monday -
-              Friday, 9:00 am - 5:00 pm
+              <div>
+                <span className="font-semibold">Office Hours:</span> Monday -
+                Friday, 9:00 am - 5:00 pm | Saturday, 12:00 pm - 6:00 pm
+              </div>
             </p>
           </div>
         </div>

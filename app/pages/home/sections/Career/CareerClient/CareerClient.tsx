@@ -70,6 +70,7 @@ export default function CareerClient() {
               key={videos[activeIndex].id}
               src={videos[activeIndex].src}
               controls
+              controlsList="nodownload"
               autoPlay
               muted
               className="w-full h-full object-cover"
