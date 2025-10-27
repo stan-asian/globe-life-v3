@@ -37,11 +37,11 @@ const reviews = [
   },
   {
     id: 5,
-    name: "Mike Taylor",
+    name: "Allyson Blackburn",
     rating: 5,
-    time: "3 months ago",
+    time: "2 weeks ago",
     review:
-      "Reihaneh Majidi was great and knowledgeable! Thank you! We enjoyed our meeting with you!",
+      "I recently had the pleasure to work with  Reihaneh Majidi, the experience was exceptional, she was very knowledgeable and took her time to explain all options. I felt that Reihaneh had mine and daughter's best interest at heart throughout the process.Her effectiveness made the entire process stress-free. I will recommend Reihaneh to anyone that is looking for a reliable and trustworthy insurance agent.",
   },
 ];
 
