@@ -54,6 +54,7 @@ export default function AgentProfile({ data }: AgentProfileProps) {
             controlsList="nodownload"
             src={"/assets/video/Placeholder.mp4"}
             className="rounded-xl shadow-lg w-full h-auto lg:max-w-3xl max-w-xl aspect-video"
+            muted
             autoPlay
           ></video>
         </div>
