@@ -9,19 +9,19 @@ export default function CareerClient() {
     {
       id: 1,
       title: "Achievement Awards",
-      src: "/assets/video/placeholder.mp4",
+      src: "/assets/video/Placeholder.mp4",
     },
     {
       id: 2,
       title: "Globe Life University",
-      src: "/assets/video/placeholder.mp4",
+      src: "/assets/video/Placeholder.mp4",
     },
     {
       id: 3,
       title: "12 Million Lives Protected",
-      src: "/assets/video/placeholder.mp4",
+      src: "/assets/video/Placeholder.mp4",
     },
-    { id: 4, title: "Future Vision", src: "/assets/video/placeholder.mp4" },
+    { id: 4, title: "Future Vision", src: "/assets/video/Placeholder.mp4" },
   ];
 
   const prevSlide = () => {
